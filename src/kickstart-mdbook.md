@@ -14,7 +14,7 @@
     - [Sub-chapter](nested/sub-chapter.md)
 ```
 
-Et en supposant que l'arborescence de vos sources et comme ceci : 
+Et en supposant que l'arborescence de vos sources est comme ceci : 
 
 ```bash
 src/
