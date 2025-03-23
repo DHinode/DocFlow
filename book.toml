@@ -5,22 +5,24 @@ multilingual = false
 src = "src"
 title = "DocFlow"
 
-# apparence
+
+    # apparence
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
+# plugin admonish faire mdbook-admonish install /DocFlow
 additional-css = ["./mdbook-admonish.css"]
 
-# pour avoir le toc
+    # pour avoir le toc
 [preprocessor.toc]
 marker = "{{#toc}}"
 depth = 3
 
-#mermaid
+    #mermaid
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 
-# pour les carré colorer
+    # pour les carré colorer
 [preprocessor.admonish]
 after = ["links"]
 command = "mdbook-admonish"
