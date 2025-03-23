@@ -13,7 +13,15 @@ exemple de l'utilisation : {{#toc}}
 je sais pas encore faire mdrr  
 installation : cargo install mdbook-mermaid  
 lancement: raf  
-exemple d'utilisation: voir doc avec Graphivz  
+exemple d'utilisation: voir doc avec Graphivz 
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 
 ## Admonish   
 source : [https://github.com/tommilligan/mdbook-admonish](https://github.com/tommilligan/mdbook-admonish)  

@@ -12,6 +12,7 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 # plugin admonish faire mdbook-admonish install /DocFlow
 additional-css = ["./mdbook-admonish.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
     # pour avoir le toc
 [preprocessor.toc]
