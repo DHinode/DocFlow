@@ -1,5 +1,10 @@
 # todo
 
+{{#toc}}
+
+Ce fichier sert a compiler l'ensemble de nos idées meme si elles aboutissent pas.
+
+
 1. - [ ] Créer un serveur avec Oracle (+ d'info voir marco)
 2. - [ ] Cree un dossier pour les astuce nvim natif et nvim plugin
 3. - [ ] Faire IOC avec les raspberry de franck
@@ -10,4 +15,4 @@
 8. - [ ] liste de commande bash sympa, ou encore ceux inconnue du bataillon (eg: cd -)
 9. - [ ] CheatSheet mermaid (c'est du graphivz donc en faire un en general)
 
-[toc]
+
