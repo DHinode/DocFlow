@@ -1,6 +1,20 @@
 [book]
 authors = ["Hinode","ZxLili"]
-language = "en"
+language = "fr"
 multilingual = false
 src = "src"
 title = "DocFlow"
+
+# apparence
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+
+# pour avoir le toc
+[preprocessor.toc]
+marker = "{{#toc}}"
+depth = 3
+
+#mermaid
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
