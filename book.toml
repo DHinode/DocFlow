@@ -9,6 +9,7 @@ title = "DocFlow"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
+additional-css = ["./mdbook-admonish.css"]
 
 # pour avoir le toc
 [preprocessor.toc]
@@ -18,3 +19,10 @@ depth = 3
 #mermaid
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
+
+# pour les carré colorer
+[preprocessor.admonish]
+after = ["links"]
+command = "mdbook-admonish"
+assets_version = "3.0.3" # do not edit: managed by `mdbook-admonish install`
+marker = ":::"

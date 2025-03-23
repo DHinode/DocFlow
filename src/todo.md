@@ -1,6 +1,4 @@
-# todo
-
-{{#toc}}
+# TODO
 
 Ce fichier sert a compiler l'ensemble de nos idées meme si elles aboutissent pas.
 
@@ -15,4 +13,6 @@ Ce fichier sert a compiler l'ensemble de nos idées meme si elles aboutissent pa
 8. - [ ] liste de commande bash sympa, ou encore ceux inconnue du bataillon (eg: cd -)
 9. - [ ] CheatSheet mermaid (c'est du graphivz donc en faire un en general)
 
-
+```admonish info 
+quelque chose d'impressionnant.
+```
