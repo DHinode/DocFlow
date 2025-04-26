@@ -91,7 +91,7 @@ int MPI_Bcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm
 - `root` : id du processus source
 
 ```c
-int MPI_Init_thread(int *argc, char ***argv, int required, int *provided);
+int MPI_Init_thread(int *argc, char **argv, int required, int *provided);
 ```
 - `required` : niveaux d'exécution 
   - `MPI_THREAD_SINGLE` : un seul thread par processus (équivalent à `MPI_Init`)
