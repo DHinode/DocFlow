@@ -31,9 +31,9 @@ int MPI_Finalize();
 ## Communicateur
 
 Type : `MPI_Comm`  
-`MPI_COMM_WOLRD` : communicateur regroupant l'ensemble des processus du système.  
-`int MPI_Comm_size(MPI_Comm comm, int *size);` : renvoie dans `size` le nombre de processus présents dans le communicateur `comm`.  
-`int MPI_Comm_rank(MPI_Comm comm, int *rank);` : renvoie dans `rank` le numéro dans le communicateur `comm`.
+- `MPI_COMM_WORLD` : communicateur regroupant l'ensemble des processus du système.  
+- `int MPI_Comm_size(MPI_Comm comm, int *size);` : renvoie dans `size` le nombre de processus présents dans le communicateur `comm`.  
+- `int MPI_Comm_rank(MPI_Comm comm, int *rank);` : renvoie dans `rank` le numéro dans le communicateur `comm`.
 
 ## Type de données
 
@@ -53,16 +53,16 @@ Type : `MPI_Comm`
 
 ## Objet `MPI_Status`
 
-`status.MPI_TAG;` : accès à la valeur du tag   
-`status.MPI_SOURCE;` : accès à l'identité de l'émetteur  
-`MPI_Get_Count(&status, datatype, &count);` : renvoie dans `count` le nombre d’objets de type `datatype` reçus  
+- `status.MPI_TAG` : accès à la valeur du tag   
+- `status.MPI_SOURCE` : accès à l'identité de l'émetteur  
+- `MPI_Get_Count(&status, datatype, &count);` : renvoie dans `count` le nombre d’objets de type `datatype` reçus  
 
 > Les flags peuvent influencer les messages reçu. 
 
 ## Jokers
 
-`MPI_ANY_SOURCE` : recevoir un message de n'importe qui  
-`MPI_ANY_TAG` : recevoir un message dont on ne connait pas le type a priori
+- `MPI_ANY_SOURCE` : recevoir un message de n'importe qui  
+- `MPI_ANY_TAG` : recevoir un message dont on ne connait pas le type a priori
 
 ## Primitives de communication MPI 
 
