@@ -164,4 +164,90 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-###   
+### Chang & Roberts
+```c
+#include <stdio.h>
+#include <string.h>
+#include <mpi.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define SIZE 2
+#define ELEC 0
+#define LEADER 1
+
+#define NON_CANDIDAT 0
+#define CANDIDAT 1
+#define ELU 2
+#define PERDU 3
+
+void proposer_candidature(int myrank, int nb_proc, int *etat, int *leader) {
+    *etat = CANDIDAT;
+    *leader = myrank;
+    int dest = (myrank + 1) % nb_proc;
+    int message[2] = {ELEC, *leader}; // Message format: [Type, Leader ID]
+    
+    printf("Processus %d se porte candidat et envoie (%d, %d) à %d\n", myrank, message[0], message[1], dest);
+    MPI_Send(message, 2, MPI_INT, dest, 0, MPI_COMM_WORLD);
+}
+
+int main(int argc, char **argv) {
+    int my_rank, nb_proc;
+    MPI_Status status;
+    
+    MPI_Init(&argc, &argv);
+    MPI_Comm_size(MPI_COMM_WORLD, &nb_proc);
+    MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
+
+    srand(getpid());
+    int initiateur = rand() % nb_proc; // Un processus aléatoire sera initiateur
+
+    int leader = -1; // Aucun leader au début
+    int etat = NON_CANDIDAT;
+
+    if (my_rank == initiateur) {
+        proposer_candidature(my_rank, nb_proc, &etat, &leader);
+    }
+
+    while (1) {
+        int message[2];
+        MPI_Recv(message, 2, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
+        int type = message[0];
+        int id_recu = message[1];
+
+        printf("Processus %d reçoit (%d, %d) de %d\n", my_rank, type, id_recu, status.MPI_SOURCE);
+
+        if (type == ELEC) {
+            if (id_recu > my_rank) {
+                etat = PERDU;
+                leader = id_recu;
+                int dest = (my_rank + 1) % nb_proc;
+                printf("Processus %d relaie (%d, %d) à %d\n", my_rank, type, id_recu, dest);
+                MPI_Send(message, 2, MPI_INT, dest, 0, MPI_COMM_WORLD);
+            } else if (id_recu < my_rank && etat == NON_CANDIDAT) {
+                proposer_candidature(my_rank, nb_proc, &etat, &leader);
+            } else if (id_recu == my_rank) {
+                etat = ELU;
+                leader = my_rank;
+                int dest = (my_rank + 1) % nb_proc;
+                int leader_msg[2] = {LEADER, leader};
+                printf("Processus %d devient leader et envoie (%d, %d) à %d\n", my_rank, LEADER, leader, dest);
+                MPI_Send(leader_msg, 2, MPI_INT, dest, 0, MPI_COMM_WORLD);
+            }
+        } else if (type == LEADER) {
+            leader = id_recu;
+            if (my_rank != leader) {
+                int dest = (my_rank + 1) % nb_proc;
+                printf("Processus %d relaie le message leader (%d, %d) à %d\n", my_rank, LEADER, leader, dest);
+                MPI_Send(message, 2, MPI_INT, dest, 0, MPI_COMM_WORLD);
+            }
+            break;
+        }
+    }
+
+    printf("Processus %d: Leader élu est %d\n", my_rank, leader);
+    
+    MPI_Finalize();
+    return 0;
+}
+```
