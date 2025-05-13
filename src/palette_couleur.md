@@ -1,5 +1,7 @@
 # Palette de couleur 
 
+**[Image Into Palette Link](https://coolors.co/image-picker)**
+
 ## Pastel one
 
 ```markdown
