@@ -10,4 +10,4 @@
     #99d594
     #3288bd
 ```
-![patel](../assets/palette_1.png)
+![patel](./assets/palette_1.png)
