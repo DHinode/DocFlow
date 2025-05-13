@@ -7,4 +7,4 @@
 - [Cloud](cloud/README.md)
     - [Kubernetes](cloud/Kubernetes.md)
     - [Docker](cloud/docker.md)
-
+- [Palette](palette_couleur.md)
