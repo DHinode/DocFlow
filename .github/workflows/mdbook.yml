@@ -41,7 +41,7 @@ jobs:
           cargo install mdbook-admonish
           ## https://github.com/badboy/mdbook-mermaid
           cargo install mdbook-mermaid
-          
+          mdbook-mermaid install $GITHUB_WORKSPACE
           mdbook-admonish install $GITHUB_WORKSPACE
       - name: Setup Pages
         id: pages
