@@ -39,9 +39,10 @@ jobs:
           cargo install --version ${MDBOOK_VERSION} mdbook
           ## ajout https://github.com/tommilligan/mdbook-admonish
           cargo install mdbook-admonish
-          # cargo install mdbook-admonish --locked
-          ls
-          mdbook-admonish install ./DocFlow
+          ## https://github.com/badboy/mdbook-mermaid
+          cargo install mdbook-mermaid
+          
+          mdbook-admonish install $GITHUB_WORKSPACE
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
