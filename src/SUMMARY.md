@@ -9,3 +9,7 @@
     - [Kubernetes](cloud/Kubernetes.md)
     - [Docker](cloud/docker.md)
 - [Palette](palette_couleur.md)
+- [Rust Overview](rust_overview.md)
+- [Ansible Overview](ansible_overview.md)
+- [ASCII Art](ascii_art.md)
+- [Emojis](emojis.md)
